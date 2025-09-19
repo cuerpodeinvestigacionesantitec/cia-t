@@ -278,6 +278,15 @@ body {
   99.99% {margin-top:0px;}
   100% {margin-top:-270px;}
 }
+
+
+h1, ul, h3{
+    color: #ffffff;
+  }
+  td{
+    padding: 20px;
+  }
+
 	</style>
 </head>
 <body>
@@ -287,20 +296,74 @@ body {
   <div class="noise"></div>
   <div class="noise noise-moving"></div>
 
-  <div class="play" data-splitting>PLAY</div>
-  <div class="time">--:--</div>
-  <div id=container>
-    Tomamos 
-    <div id=flip>
-      <div><div>ciat</div></div>    
-      <div><div>u</div></div>
-      <div><div>fxck</div></div>
-    </div>
-    El control 😈
+  <div class="play" data-splitting>STX</div>
+  <div class="time">
+    --:--
   </div>
-  <div class="recordSpeed">SLP 0:00:00</div>
+  <div id=container>
+  
+    <div id=flip>
+      <div><div>Sybven & Soluciones Laser</div></div>
+      <div><div>u</div></div>
+      <div><div>I caught</div></div>   
+    </div>
+    Tomamos el control de su empresa
+
+
+    
+
+  </div>
+  <div id="recordSpeed" class="recordSpeed">
+    <div id="countdown">
+      <span id="days"></span> días
+      <span id="hours"></span> horas
+      <span id="minutes"></span> minutos
+      <span id="seconds"></span> segundos
+    </div>
+  </div>
 </div>
 </body>
+<footer>
+  <script>
+    const targetDate = new Date('2025-11-07T10:00:00').getTime(); // Cambia esta fecha por la que necesites
+
+    const timer = setInterval(updateCountdown, 1000);
+    function updateCountdown() {
+        const now = new Date().getTime(); // Fecha y hora actual en milisegundos
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            clearInterval(timer); // Detener el temporizador si la fecha ha pasado
+            document.getElementById('countdown').innerHTML = "¡Tiempo finalizado!";
+            return;
+        }
+
+        // Calcular el tiempo
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Mostrar el resultado en la página
+        document.getElementById('days').innerHTML = (days < 10) ? '0' + days : days;
+        document.getElementById('hours').innerHTML = (hours < 10) ? '0' + hours : hours;
+        document.getElementById('minutes').innerHTML = (minutes < 10) ? '0' + minutes : minutes;
+        document.getElementById('seconds').innerHTML = (seconds < 10) ? '0' + seconds : seconds;
+  }
+    // let miElemento = document.getElementById("recordSpeed");
+    // let tiempoRestante = 60; // Tiempo inicial en segundos
+    // const temporizadorId = setInterval(() => {
+    //   if (tiempoRestante <= 0) {
+    //       clearInterval(temporizadorId); // Detener el temporizador
+    //       console.log("¡Tiempo terminado!");
+    //       return; // Salir de la función
+    //   }
+    //   miElemento.innerHTML = tiempoRestante;
+    //   //console.log(`Tiempo restante: ${tiempoRestante} segundos`);
+    //   tiempoRestante--; // Disminuir el tiempo
+    // }, 1000); 
+  </script>
+</footer>
 </html>
 
 
